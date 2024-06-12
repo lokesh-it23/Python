@@ -1,0 +1,73 @@
+                                                              Bubble Sort
+Given an listof integers, sort the array in ascending order using the Bubble Sort algorithm above. Once sorted, print the following three lines:
+1.      List is sorted in numSwaps swaps., where numSwaps is the number of swaps that took place.
+2.      First Element: firstElement, the  first element in the sorted list.
+3.      Last Element: lastElement, the last element in the sorted list.
+For example, given a worst-case but small array to sort: a=[6,4,1]. It took  3 swaps to sort the array. Output would be
+Array is sorted in 3 swaps.  
+First Element: 1  
+Last Element: 6   
+
+Input Format
+The first line contains an integer,n , the size of the list a .
+The second line contains  n,  space-separated integers a[i].
+Constraints
+·         2<=n<=600
+·         1<=a[i]<=2x106.
+Output Format
+You must print the following three lines of output:
+1.      List is sorted in numSwaps swaps., where numSwaps is the number of swaps that took place.
+2.      First Element: firstElement, the  first element in the sorted list.
+3.      Last Element: lastElement, the last element in the sorted list.
+
+Sample Input 0
+3
+1 2 3
+Sample Output 0
+List is sorted in 0 swaps.
+First Element: 1
+Last Element: 3
+
+For example:
+Input	Result
+3
+3 2 1	List is sorted in 3 swaps.
+First Element: 1
+Last Element: 3
+5
+1 9 2 8 4	List is sorted in 4 swaps.
+First Element: 1
+Last Element: 9
+
+def bubble_sort(arr):
+    n = len(arr)
+    swaps = 0
+    
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j + 1]:
+                # Swap elements
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swaps += 1
+    
+    return swaps
+
+# Input the size of the list
+n = int(input())
+
+# Input the list of integers
+arr = list(map(int, input().split()))
+
+# Perform bubble sort and count the number of swaps
+num_swaps = bubble_sort(arr)
+
+# Print the number of swaps
+print("List is sorted in", num_swaps, "swaps.")
+
+# Print the first element
+print("First Element:", arr[0])
+
+# Print the last element
+print("Last Element:", arr[-1])
+
+ 
