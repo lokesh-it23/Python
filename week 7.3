@@ -1,0 +1,49 @@
+                                                Check Product of Digits
+Write a code to check whether product of digits at even places is divisible by sum of digits at odd place of a positive integer.
+Input Format:
+
+Take an input integer from stdin.
+
+Output Format:
+
+Print TRUE or FALSE.
+
+Example Input:
+
+1256
+
+Output:
+
+TRUE
+
+Example Input:
+
+1595
+
+Output:
+
+FALSE
+
+For example:
+
+Test
+Result
+
+print(productDigits(1256))
+True
+
+print(productDigits(1595))
+False
+
+
+def productDigits(n):
+    a=str(n)
+    s,p=0,1
+    for i in range(0,len(a),2):
+        s+=int(a[i])
+    for i in range(1,len(a),2):
+        p*=int(a[i])
+    if(p%s==0):
+        return("True")
+    else:
+        return("False")
