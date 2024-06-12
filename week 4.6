@@ -1,0 +1,43 @@
+                                                                                                Disarium Number
+A Number is said to be Disarium number when the sum of its digit raised to the power of their respective positions becomes equal to the number itself. Write a program to print number is Disarium or not.
+
+Input Format:
+Single Integer Input from stdin.
+Output Format:
+Yes or No.
+Example Input:
+175
+Output:
+Yes
+Explanation
+1^1 + 7^2 +5^3 = 175
+Example Input:
+123
+Output:
+No
+For example:
+Input
+Result
+
+175
+Yes
+
+123
+No
+
+
+
+import math
+n=int(input())
+a=len(str(n))
+sum=0
+x=n
+while(x!=0):
+    r=x%10
+    sum=int(sum+math.pow(r,a))
+    a-=1
+    x=x//10
+if(sum==n):
+    print("Yes")
+else:
+    print("No")
