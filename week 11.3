@@ -1,0 +1,27 @@
+Problem Description:
+Write a Python script that asks the user to enter a number within a specified range (e.g., 1 to 100). Handle exceptions for invalid inputs and out-of-range numbers.
+Input Format:
+User inputs a number.
+Output Format:
+Confirm the input or print an error message if it's invalid or out of range.
+For example:
+Input	Result
+1	Valid input.
+101	Error: Number out of allowed range
+rec	Error: invalid literal for int()
+
+def main():
+    min_range = 1
+    max_range = 100
+
+    try:
+        num = int(input())
+        if num < min_range or num > max_range:
+            print("Error: Number out of allowed range")
+        else:
+            print("Valid input.")
+    except ValueError:
+        print("Error: invalid literal for int()")
+
+
+if _name_ == "_main_":
