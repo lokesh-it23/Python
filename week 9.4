@@ -1,0 +1,61 @@
+                                                                                    Student Record
+
+Create a student dictionary  for n students with the student name as key and their test mark assignment mark and lab mark as values. Do the following computations and display the result.
+1.Identify the student with the  highest average score
+2.Identify the student who as the highest Assignment marks
+3.Identify the student with the Lowest lab marks
+4.Identify the student with the lowest average score
+Note:
+If more than one student has the same score display all the student names
+
+Sample input:
+4
+James 67 89 56
+Lalith 89 45 45
+Ram 89 89 89
+Sita 70 70 70
+Sample Output:
+Ram
+James Ram
+Lalith
+Lalith
+
+n = int(input())
+max_average = float('-inf')
+min_average = float('inf')
+max_assignment = float('-inf')
+min_lab = float('inf')
+max_average_students = []
+max_assignment_students = []
+min_lab_students = []
+min_average_students = []
+for _ in range(n):
+    name, test, assignment, lab = input().split()
+    test = int(test)
+    assignment = int(assignment)
+    lab = int(lab)
+    average = (test + assignment + lab) / 3
+    if average > max_average:
+        max_average = average
+        max_average_students = [name]
+    elif average == max_average:
+        max_average_students.append(name)
+    if average < min_average:
+        min_average = average
+        min_average_students = [name]
+    elif average == min_average:
+        min_average_students.append(name)
+    if assignment > max_assignment:
+        max_assignment = assignment
+        max_assignment_students = [name]
+    elif assignment == max_assignment:
+        max_assignment_students.append(name)
+    if lab < min_lab:
+        min_lab = lab
+        min_lab_students = [name]
+    elif lab == min_lab:
+        min_lab_students.append(name)
+print(*sorted(max_average_students))
+print(*sorted(max_assignment_students))
+print(*sorted(min_lab_students))
+print(*sorted(min_average_students))
