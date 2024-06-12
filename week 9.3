@@ -1,0 +1,58 @@
+                                                                                      Winner of Election
+Given an array of names of candidates in an election. A candidate name in the array represents a vote cast to the candidate. Print the name of candidates received Max vote. If there is tie, print a lexicographically smaller name.
+Examples: 
+Input :  votes[] = {"john", "johnny", "jackie",
+                    "johnny", "john", "jackie",
+                    "jamie", "jamie", "john",
+                    "johnny", "jamie", "johnny",
+                    "john"};
+Output : John
+We have four Candidates with name as 'John', 'Johnny', 'jamie', 'jackie'. The candidates John and Johny get maximum votes. Since John is alphabetically smaller, we print it. Use dictionary to solve the above problem
+ 
+Sample Input:
+10
+John
+John
+Johny
+Jamie
+Jamie
+Johny
+Jack
+Johny
+Johny
+Jackie
+ 
+Sample Output:
+Johny
+ 
+
+For example:
+Input
+Result
+
+10
+John
+John
+Johny
+Jamie
+Jamie
+Johny
+Jack
+Johny
+Johny
+Jackie
+Johny
+
+
+n = int(input())
+
+votes = {}
+
+for _ in range(n):
+    candidate = input()
+    votes[candidate] = votes.get(candidate, 0) + 1
+
+max_votes = max(votes.values())
+max_candidates = [candidate for candidate, count in votes.items() if count == max_votes]
+
+print(min(max_candidates))
